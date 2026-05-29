@@ -51,7 +51,7 @@ En lugar de recalcular PCA con todo el dataset cada vez, iPCA actualiza el model
 
 ### 2. Clonar el repositorio
 ```bash
-git clone <URL_DEL_REPO>
+git clone https://github.com/mayraglezmtz/PCA-Incremental.git
 cd django-celery/ipca
 ```
 

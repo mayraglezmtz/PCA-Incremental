@@ -14,9 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# ipca/urls.py
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from ipca_app.views import index
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+    path('',          index),                            # raíz → HTML con gráfica
+    path('admin/',    admin.site.urls),
+    path('api/',      include('ipca_app.urls')),         # /api/datapoints/...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
